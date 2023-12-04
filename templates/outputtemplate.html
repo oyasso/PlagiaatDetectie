@@ -10,32 +10,18 @@
     <table>
         <tr>
             <th>Combinaties</th> 
-            <td>student_0</td>
-            <td>student_1</td>
-            <td>student_2</td>
+            {% for student in studenten %}
+            <td>{{student}}</td>
+            {% endfor %}
         </tr>
-        
+        {% for student in studenten %}
         <tr>
-            <th>student_0</th>
-            <td>/</td>
-            <td>['zelfde alinea']</td>
-            <td>['Plagiaatvrij']</td>
+            <th>{{student}}</th>
+            <td>{{studenten.get(student).get("student_0", "Not Found")}}</td>
+            <td>{{studenten.get(student).get("student_1", "Not Found")}}</td>
+            <td>{{studenten.get(student).get("student_2", "Not Found")}}</td>
         </tr>
-        
-        <tr>
-            <th>student_1</th>
-            <td>['zelfde alinea']</td>
-            <td>/</td>
-            <td>['zelfde bronnen', 'zelfde titel']</td>
-        </tr>
-        
-        <tr>
-            <th>student_2</th>
-            <td>['Plagiaatvrij']</td>
-            <td>['zelfde bronnen', 'zelfde titel']</td>
-            <td>/</td>
-        </tr>
-        
+        {% endfor %}
     </table>
 </body>
 </html>
